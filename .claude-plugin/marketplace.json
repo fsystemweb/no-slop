@@ -1,0 +1,11 @@
+{
+  "name": "no-slop",
+  "owner": { "name": "fsystemweb" },
+  "plugins": [
+    {
+      "name": "no-slop",
+      "source": "./",
+      "description": "Stops AI coding agents from writing slop comments. Comments explain why, not what."
+    }
+  ]
+}
