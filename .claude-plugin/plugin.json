@@ -1,0 +1,10 @@
+{
+  "name": "no-slop",
+  "version": "1.0.0",
+  "description": "Stops AI coding agents from writing slop comments. Comments explain why, not what.",
+  "author": { "name": "fsystemweb" },
+  "homepage": "https://github.com/fsystemweb/no-slop",
+  "repository": "https://github.com/fsystemweb/no-slop",
+  "license": "MIT",
+  "keywords": ["comments", "code-quality", "skill"]
+}
