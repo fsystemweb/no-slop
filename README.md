@@ -1,8 +1,6 @@
 <div align="center">
 
-# no-slop
-
-**Comments that explain *why*, not *what*.**
+<img src="assets/banner.png" alt="no-slop: comments that explain why, not what" width="100%">
 
 An agent skill that stops AI coding assistants from littering your code with comments nobody asked for.
 
