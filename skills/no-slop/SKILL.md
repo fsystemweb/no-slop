@@ -1,23 +1,46 @@
 ---
 name: no-slop
-description: Keeps code comments meaningful and free of AI slop. Use whenever writing, editing, or reviewing code.
+description: Prevents AI-slop code comments. Use whenever writing, editing, refactoring, or reviewing code in any language, and before finishing any coding task.
 ---
 
-# Commenting Policy
+# No Slop Comments
 
-Keep the codebase clean, concise, and easy to read.
+Comments explain **why**, never **what**. If the code already says it, don't write it.
 
-**Avoid unnecessary comments.** Don't write comments explaining what the code is doing when the implementation is already self-explanatory.
+## Don't
 
-1. Do not add comments describing obvious operations, assignments, conditions, loops, function calls, or return statements.
-2. Do not add comments explaining code line by line or narrating implementation steps.
-3. Prefer meaningful variable names, function names, and clear abstractions over comments.
-4. Only add comments when necessary to explain non-obvious business logic, architectural decisions, technical constraints, workarounds, or important edge cases.
-5. Do not add comments just to make the code look documented or easier for an AI to understand.
-6. Preserve existing meaningful comments, but remove redundant, outdated, or misleading comments when modifying the relevant code.
-7. Never duplicate information already available in function names, type definitions, docstrings, tests, or surrounding implementation.
-8. Keep docstrings concise and focused on public APIs or genuinely complex behavior.
+- Narrate operations, assignments, conditions, loops, calls, or returns.
+- Walk through the implementation step by step (`// Step 1: ...`).
+- Add section banners or headers inside functions.
+- Restate what a name, type, test, or docstring already says.
+- Describe the change you just made (`// now uses X`, `// added for Y`). That belongs in the commit.
+- Write for the reviewer or for an AI (`// this handles the edge case`).
+- Document trivial or private code. Keep docstrings short and for public APIs or genuinely complex behavior.
 
-**Before finishing a task, review your changes and remove any comments that do not provide meaningful additional context.**
+## Do
 
-General principle: comments explain **why**, not **what**. Prioritize readability through good code structure rather than excessive explanations.
+- Fix unclear code with better names and smaller functions before reaching for a comment.
+- Comment only what the code can't show: business rules, architectural decisions, technical constraints, workarounds, non-obvious edge cases.
+- Keep existing meaningful comments. Remove ones that become redundant, outdated, or wrong when you touch the code they describe.
+
+## Example
+
+```ts
+// Bad
+// Loop through users and check if each one is active
+for (const user of users) {
+  // If the user is active, add them to the list
+  if (user.isActive) active.push(user);
+}
+
+// Good
+const active = users.filter((user) => user.isActive);
+
+// Good: explains why, which the code can't
+// Stripe rejects retries inside 24h of a failed charge, so back off first.
+await sleep(RETRY_BACKOFF_MS);
+```
+
+## Before finishing
+
+Review your diff and delete every comment that adds no context beyond the code.
