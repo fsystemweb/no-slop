@@ -1,6 +1,6 @@
 {
   "name": "no-slop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stops AI coding agents from writing slop comments. Comments explain why, not what.",
   "author": { "name": "fsystemweb" },
   "homepage": "https://github.com/fsystemweb/no-slop",
