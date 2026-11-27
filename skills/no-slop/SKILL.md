@@ -23,24 +23,6 @@ Comments explain **why**, never **what**. If the code already says it, don't wri
 - Comment only what the code can't show: business rules, architectural decisions, technical constraints, workarounds, non-obvious edge cases.
 - Keep existing meaningful comments. Remove ones that become redundant, outdated, or wrong when you touch the code they describe.
 
-## Example
-
-```ts
-// Bad
-// Loop through users and check if each one is active
-for (const user of users) {
-  // If the user is active, add them to the list
-  if (user.isActive) active.push(user);
-}
-
-// Good
-const active = users.filter((user) => user.isActive);
-
-// Good: explains why, which the code can't
-// Stripe rejects retries inside 24h of a failed charge, so back off first.
-await sleep(RETRY_BACKOFF_MS);
-```
-
 ## Before finishing
 
 Review your diff and delete every comment that adds no context beyond the code.
